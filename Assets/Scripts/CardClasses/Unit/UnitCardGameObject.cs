@@ -5,7 +5,7 @@ using System;
 /// Must have <c>UnitCardObject</c> assigned
 /// in order to function.
 /// </summary>
-public class UnitCardGameObject : MonoBehaviour
+public class UnitCardGameObject :CardGameObject
 {
     [SerializeField] private UnitCardObject _unitCardSO;
     [SerializeField] private UnitCard _unitCard => _unitCardSO.ThisUnitCard;
@@ -22,8 +22,8 @@ public class UnitCardGameObject : MonoBehaviour
             }
         }
     }
-
-    private void OnValidate()
+    #region Inherited Methods
+    protected override void OnValidate()
     {
         try
         {
@@ -32,14 +32,18 @@ public class UnitCardGameObject : MonoBehaviour
                 _unitCardSO = null;
                 throw new NullReferenceException();
             }
+            else
+            {
+                this.gameObject.name = $"{_unitCard.CardNumber}_{_unitCard.Title}_card";
+            }
         }
         catch(NullReferenceException ex)
         {
-            Debug.LogWarning($"Please check the card assigned is setup correctly.");
+            Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
         }
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         try
         {
@@ -53,6 +57,11 @@ public class UnitCardGameObject : MonoBehaviour
         {
             Debug.Log("You have not assigned a Unit Card Object!");
         }
-                
     }
+
+    protected override void PlayCard()
+    {
+       //code here
+    }
+    #endregion
 }

@@ -6,7 +6,7 @@ using System;
 /// in a Prefab with the <c>UnitCardGameObject</c> component.
 /// </summary>
 [CreateAssetMenu(menuName ="Card/Character Card")]
-public class UnitCardObject: ScriptableObject
+public class UnitCardObject: CardObject
 {
     [SerializeField] private UnitCard _unitCard;
     public UnitCard ThisUnitCard
@@ -20,18 +20,17 @@ public class UnitCardObject: ScriptableObject
                 case CardType.Location:
                 case CardType.Upgrade:
                     Debug.Log($"{_unitCard.ThisCardType} should not be of type: UnitCard. Please check the Card Type.");
-                    TypeVerified = false;
+                   _isTypeVerified = false;
                     break;
                 default:
                     _unitCard = value;
-                    TypeVerified = true;
+                   _isTypeVerified = true;
                     break;
             }
         }
     }
-    public bool TypeVerified = false;
-
-    private void OnValidate()
+    
+    protected override void OnValidate()
     {
         try
         {

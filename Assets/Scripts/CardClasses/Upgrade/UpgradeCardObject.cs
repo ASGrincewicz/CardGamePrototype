@@ -5,7 +5,7 @@ using System;
 /// in a Prefab with the <c>UpgradeCardGameObject</c> component.
 /// </summary>
 [CreateAssetMenu(menuName ="Card/Upgrade Card")]
-public class UpgradeCardObject: ScriptableObject
+public class UpgradeCardObject:CardObject
 {
     [SerializeField] private UpgradeCard _upgradeCard = new UpgradeCard();
 
@@ -17,23 +17,22 @@ public class UpgradeCardObject: ScriptableObject
            if(_upgradeCard.ThisCardType != CardType.Upgrade)
            {
                 Debug.Log($"{_upgradeCard.ThisCardType} should not be of type: UpgradeCard. Please check the Card Type.");
-                TypeVerified = false;
+                _isTypeVerified = false;
            }
            else if(_upgradeCard.Power > 0 && _upgradeCard.ThisUpgradeType != UpgradeCard.UpgradeType.Weapon)
             {
-                TypeVerified = false;
+                _isTypeVerified = false;
                 Debug.Log($"Only Weapons should have a Power > 0. It is currently set to {_upgradeCard.Power}.");
             }
            else
             {
                 _upgradeCard = value;
-                TypeVerified = true;
+                _isTypeVerified = true;
             }
         }
     }
-    public bool TypeVerified = false;
 
-    private void OnValidate()
+    protected override void OnValidate()
     {
         try
         {
@@ -41,7 +40,7 @@ public class UpgradeCardObject: ScriptableObject
         }
         catch (NullReferenceException ex)
         {
-            Debug.Log("Please assign a Upgrade Card to this game object.");
+            Debug.Log("Please assign an Upgrade Card to this game object.");
         }
     }
 }

@@ -5,7 +5,7 @@ using System;
 /// Must have <c>UpgradeCardObject</c> assigned
 /// in order to function.
 /// </summary>
-public class UpgradeCardGameObject: MonoBehaviour
+public class UpgradeCardGameObject: CardGameObject
 {
     [SerializeField] private UpgradeCardObject _upgradeCardSO;
     [SerializeField] private UpgradeCard _upgradeCard => _upgradeCardSO.ThisUpgradeCard;
@@ -17,13 +17,11 @@ public class UpgradeCardGameObject: MonoBehaviour
             if (_upgradeCardSO.TypeVerified)
                 _upgradeCardSO = value;
             else
-            {
-                Debug.Log("Please verify the UnitCardObject's type.");
-            }
+                Debug.Log("Please verify the UpgradeCardObject's type.");
         }
     }
-
-    private void OnValidate()
+    #region Inherited Methods
+    protected override void OnValidate()
     {
         try
         {
@@ -32,16 +30,26 @@ public class UpgradeCardGameObject: MonoBehaviour
                 _upgradeCardSO = null;
                 throw new NullReferenceException();
             }
+            else
+            {
+                this.gameObject.name = $"{_upgradeCard.CardNumber}_{_upgradeCard.Title}_card";
+            }
         }
         catch (NullReferenceException ex)
         {
-            Debug.LogWarning($"Please check the card assigned is setup correctly.");
+            Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
         }
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         if (_upgradeCardSO == null)
-            Debug.Log("You have not assigned a Unit Card Object!");
+            Debug.Log("You have not assigned an Upgrade Card Object!");
     }
+
+    protected override void PlayCard()
+    {
+       //
+    }
+    #endregion
 }
