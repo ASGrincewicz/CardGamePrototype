@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isTypeVerified: 1
   _unitCard:
-    _title: Card Title
+    _title: Samus Aran
     _cardType: 0
-    _cardNumber: 0
+    _cardNumber: 12
     _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}

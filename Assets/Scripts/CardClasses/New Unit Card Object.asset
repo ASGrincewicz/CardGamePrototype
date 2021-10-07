@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717b80298afbc27429510ca2c617fbf5, type: 3}
   m_Name: New Unit Card Object
   m_EditorClassIdentifier: 
+  _isTypeVerified: 1
   _unitCard:
-    _title: Card Title
-    _cardType: 0
-    _cardNumber: 0
+    _title: Creature Card
+    _cardType: 1
+    _cardNumber: 3
     _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}
     _hitPoints: 0
     _power: 0
-  TypeVerified: 1

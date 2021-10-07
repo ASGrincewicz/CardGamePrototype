@@ -28,11 +28,13 @@ public class UpgradeCardGameObject: CardGameObject
             if (!_upgradeCardSO.TypeVerified)
             {
                 _upgradeCardSO = null;
+                _isCardVerified = false;
                 throw new NullReferenceException();
             }
             else
             {
                 this.gameObject.name = $"{_upgradeCard.CardNumber}_{_upgradeCard.Title}_card";
+                _isCardVerified = true;
             }
         }
         catch (NullReferenceException ex)
@@ -43,13 +45,27 @@ public class UpgradeCardGameObject: CardGameObject
 
     protected override void OnEnable()
     {
-        if (_upgradeCardSO == null)
+        try
+        {
+            if (_upgradeCardSO == null)
+            {
+                _isCardVerified = false;
+                throw new NullReferenceException();
+            }
+            else
+                VerifyCardToPlay();
+
+        }
+
+        catch (NullReferenceException ex)
+        {
             Debug.Log("You have not assigned an Upgrade Card Object!");
+        }
     }
 
     protected override void PlayCard()
     {
-       //
+        Debug.Log($"{this.gameObject.name} was played.");
     }
     #endregion
 }

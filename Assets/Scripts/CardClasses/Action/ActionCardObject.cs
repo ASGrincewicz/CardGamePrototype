@@ -35,7 +35,7 @@ public class ActionCardObject: CardObject
         }
         catch (NullReferenceException ex)
         {
-            Debug.Log("Please assign a Upgrade Card to this game object.");
+            Debug.Log("Please assign an Action Card to this game object.");
         }
     }
 

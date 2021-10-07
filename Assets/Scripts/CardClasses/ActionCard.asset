@@ -16,7 +16,7 @@ MonoBehaviour:
   _actionCard:
     _title: Action Card
     _cardType: 4
-    _cardNumber: 2
+    _cardNumber: 3
     _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}

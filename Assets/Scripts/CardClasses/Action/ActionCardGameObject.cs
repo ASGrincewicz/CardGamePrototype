@@ -30,12 +30,14 @@ public class ActionCardGameObject: CardGameObject
         {
             if (!_actionCardSO.TypeVerified)
             {
+                _isCardVerified = false;
                 _actionCardSO = null;
                 throw new NullReferenceException();
             }
             else
             {
                 this.gameObject.name = $"{_actionCard.CardNumber}_{_actionCard.Title}_card";
+                _isCardVerified = true;
             }
         }
         catch (NullReferenceException ex)
@@ -46,13 +48,27 @@ public class ActionCardGameObject: CardGameObject
 
     protected override void OnEnable()
     {
-        if (_actionCardSO == null)
+        try
+        {
+            if (_actionCardSO == null)
+            {
+                _isCardVerified = false;
+                throw new NullReferenceException();
+            }
+            else
+                VerifyCardToPlay();
+
+        }
+
+        catch (NullReferenceException ex)
+        {
             Debug.Log("You have not assigned an Action Card Object!");
+        }
     }
 
     protected override void PlayCard()
     {
-        //
+        Debug.Log($"{this.gameObject.name} was played.");
     }
     #endregion
 }

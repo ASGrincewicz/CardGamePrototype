@@ -30,10 +30,12 @@ public class UnitCardGameObject :CardGameObject
             if (!_unitCardSO.TypeVerified)
             {
                 _unitCardSO = null;
+                _isCardVerified = false;
                 throw new NullReferenceException();
             }
             else
             {
+                _isCardVerified = true;
                 this.gameObject.name = $"{_unitCard.CardNumber}_{_unitCard.Title}_card";
             }
         }
@@ -49,8 +51,12 @@ public class UnitCardGameObject :CardGameObject
         {
             if (_unitCardSO == null)
             {
+                _isCardVerified = false;
                 throw new NullReferenceException();
             }
+            else
+                VerifyCardToPlay();
+
         }
        
         catch (NullReferenceException ex)
@@ -58,10 +64,10 @@ public class UnitCardGameObject :CardGameObject
             Debug.Log("You have not assigned a Unit Card Object!");
         }
     }
-
+   
     protected override void PlayCard()
     {
-       //code here
+        Debug.Log($"{this.gameObject.name} was played.");
     }
     #endregion
 }
