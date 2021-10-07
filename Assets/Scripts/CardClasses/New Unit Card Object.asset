@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717b80298afbc27429510ca2c617fbf5, type: 3}
   m_Name: New Unit Card Object
   m_EditorClassIdentifier: 
-  _characterCard:
+  _unitCard:
     _title: Card Title
-    _cardType: 6
+    _cardType: 0
     _cardNumber: 0
     _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}
     _hitPoints: 0
     _power: 0
+  TypeVerified: 1
