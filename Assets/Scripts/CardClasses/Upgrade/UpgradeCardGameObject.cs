@@ -54,12 +54,11 @@ public class UpgradeCardGameObject: CardGameObject
             }
             else
                 VerifyCardToPlay();
-
         }
 
         catch (NullReferenceException ex)
         {
-            Debug.Log("You have not assigned an Upgrade Card Object!");
+            Debug.Log($"You have not assigned an Upgrade Card Object to {gameObject.name}!");
         }
     }
 

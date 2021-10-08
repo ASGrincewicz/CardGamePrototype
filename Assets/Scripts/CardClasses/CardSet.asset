@@ -12,23 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62ad3f89ae4d8468f83520b1fbd39b, type: 3}
   m_Name: CardSet
   m_EditorClassIdentifier: 
-  _cards:
-  - _title: Card One
-    _cardType: 0
-    _cardNumber: 1
-    _rarity: 0
-    _cardText: Test Card
-    _cardImageSprite: {fileID: 0}
-  - _title: Card Two
-    _cardType: 1
-    _cardNumber: 2
-    _rarity: 0
-    _cardText: Test Card 2
-    _cardImageSprite: {fileID: 0}
-  - _title: Card Three
-    _cardType: 2
-    _cardNumber: 3
-    _rarity: 0
-    _cardText: Test Card 3
-    _cardImageSprite: {fileID: 0}
   _filePath: 
+  _cards:
+  - {fileID: 11400000, guid: eea04e54930910b469532c72c59c54e6, type: 2}
+  - {fileID: 11400000, guid: 096b54c79c68c1c4faf95c25a0d9ed96, type: 2}
+  - {fileID: 11400000, guid: 587a318f92ac1ed489d8577d504fa020, type: 2}
+  - {fileID: 11400000, guid: 5a5db6c1144c61148abe29e866be80c0, type: 2}
+  - {fileID: 11400000, guid: 7c099e19fb2f54d48b20647115003d2f, type: 2}

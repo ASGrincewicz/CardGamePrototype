@@ -7,6 +7,7 @@ using UnityEngine;
 ///<c>Card</c> is the base class for all card types.
 ///All cards should have:
 ///<list type="bullet">
+///<item>Card Set</item>
 ///<item>Title</item>
 ///<item>Card Type</item>
 ///<item>Card Number</item>
@@ -18,6 +19,21 @@ using UnityEngine;
 [System.Serializable]
 public class Card
 {
+    [SerializeField] protected CardLibraryObject _cardSet;
+    public CardLibraryObject CardSet
+    {
+        get => _cardSet;
+        private set
+        {
+            if (_cardSet.ThisCardLibrary.ValidateCardInLibrary(_title, _cardNumber))
+                _cardSet = value;
+            else
+            {
+                _cardSet = null;
+                Debug.LogWarning("This Set does not contain the specific card. Check the card details.");
+            }
+        }
+    }
     [SerializeField] protected string _title = "Card Title";
     public string Title { get => _title; set => _title = value; }
     [SerializeField] protected CardType _cardType;

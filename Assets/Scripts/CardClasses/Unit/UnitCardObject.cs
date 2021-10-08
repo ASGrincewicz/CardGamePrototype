@@ -25,6 +25,8 @@ public class UnitCardObject: CardObject
                 default:
                     _unitCard = value;
                    _isTypeVerified = true;
+                    _title = _unitCard.Title;
+                    _cardNumber = _unitCard.CardNumber;
                     break;
             }
         }

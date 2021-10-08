@@ -18,43 +18,59 @@ using UnityEngine;
 public class CardLibrary
 {
     [SerializeField] private string _setName = "Base Set";
-    private Dictionary<Card, int> _cardLibrary = new Dictionary<Card, int>();
-    public Dictionary<Card, int> CardSet { get => _cardLibrary; set => _cardLibrary = value; }
-
+    private Dictionary<string, int> _cardLibrary = new Dictionary<string, int>();
+    public Dictionary<string, int> CardSet
+    {
+        get => _cardLibrary;
+        set
+        {
+            if(_cardLibrary == null)
+                _cardLibrary = new Dictionary<string, int>();
+        }
+    }
+    
     /// <summary>
     /// Adds a card to the Dictionary if it's not already listed.
     /// </summary>
     /// <param name="card"></param>
     /// <param name="cardNumber"></param>
-    public void AddToCardLibrary(Card card, int cardNumber)
+    public void AddToCardLibrary(string cardName, int cardNumber)
     {
-        if (_cardLibrary.ContainsKey(card))
+        if (_cardLibrary.ContainsKey(cardName))
             Debug.Log("Already Exists");
         else
-            _cardLibrary.Add(card, cardNumber);
+        {
+            _cardLibrary.Add(cardName, cardNumber);
+            Debug.Log($"{cardName} has been added.");
+        }
     }
     /// <summary>
     /// Removes a card rom the Dictionary if the card is listed.
     /// </summary>
     /// <param name="cardName"></param>
     /// <param name="cardNumber"></param>
-    public void RemoveCardFromLibrary(Card cardName, int cardNumber)
+    public void RemoveCardFromLibrary(string cardName, int cardNumber)
     {
-        if (_cardLibrary.ContainsKey(cardName) && _cardLibrary.ContainsValue(cardNumber))
-            _cardLibrary.Remove(cardName);
-    }
-
-    public void SaveCardLibrary()
-    {
-       // string json = JsonUtility.ToJson(library);
-       // File.WriteAllText(Application.persistentDataPath + "/cardLibrary.json", json);
-    }
-
-    public void LoadCardLibrary(string path)
-    {
-        if(File.Exists(path))
+        if (_cardLibrary.ContainsKey(cardName))
         {
-            //
+            _cardLibrary.Remove(cardName);
+            Debug.Log($"{cardName} has been removed.");
         }
+    }
+    /// <summary>
+    /// This Method checks the Card Set data for a matching name and number
+    /// to verify the card is in the set.
+    /// </summary>
+    /// <param name="cardName"></param>
+    /// <param name="cardNumber"></param>
+    /// <returns></returns>
+    public bool ValidateCardInLibrary(string cardName, int cardNumber)
+    {
+        int libraryValue;
+        _cardLibrary.TryGetValue(cardName, out libraryValue);
+        if (libraryValue == cardNumber)
+            return true;
+        else
+            return false;
     }
 }

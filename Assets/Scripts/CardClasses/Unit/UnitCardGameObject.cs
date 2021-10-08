@@ -61,7 +61,7 @@ public class UnitCardGameObject :CardGameObject
        
         catch (NullReferenceException ex)
         {
-            Debug.Log("You have not assigned a Unit Card Object!");
+            Debug.Log($"You have not assigned a Unit Card Object to {gameObject.name}!");
         }
     }
    

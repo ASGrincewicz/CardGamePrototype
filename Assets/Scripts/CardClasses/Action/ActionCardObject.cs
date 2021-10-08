@@ -24,6 +24,8 @@ public class ActionCardObject: CardObject
             {
                 _actionCard = value;
                 _isTypeVerified = true;
+                _title = _actionCard.Title;
+                _cardNumber = _actionCard.CardNumber;
             }
         }
     }

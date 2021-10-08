@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 708f565c4862dca4f82ef06675df141f, type: 3}
-  m_Name: UpgradeCard
+  m_Name: Wave Beam
   m_EditorClassIdentifier: 
-  _title: Upgrade Card
-  _cardNumber: 1
+  _title: Wave Beam
+  _cardNumber: 5
   _isTypeVerified: 1
   _upgradeCard:
     _cardSet: {fileID: 11400000, guid: f0025c2ed30598b4e8953bb7e9e36228, type: 2}
-    _title: Upgrade Card
+    _title: Wave Beam
     _cardType: 5
-    _cardNumber: 1
+    _cardNumber: 5
     _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}
-    _upgradeType: 0
-    _power: 0
+    _upgradeType: 1
+    _power: 5

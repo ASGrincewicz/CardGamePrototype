@@ -62,7 +62,7 @@ public class ActionCardGameObject: CardGameObject
 
         catch (NullReferenceException ex)
         {
-            Debug.Log("You have not assigned an Action Card Object!");
+            Debug.Log($"You have not assigned an Action Card Object to {gameObject.name}!");
         }
     }
 

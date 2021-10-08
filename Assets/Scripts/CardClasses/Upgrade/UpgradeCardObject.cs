@@ -28,6 +28,8 @@ public class UpgradeCardObject:CardObject
             {
                 _upgradeCard = value;
                 _isTypeVerified = true;
+                _title = _upgradeCard.Title;
+                _cardNumber = _upgradeCard.CardNumber;
             }
         }
     }

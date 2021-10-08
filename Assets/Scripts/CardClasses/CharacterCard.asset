@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717b80298afbc27429510ca2c617fbf5, type: 3}
   m_Name: CharacterCard
   m_EditorClassIdentifier: 
+  _title: Samus Aran
+  _cardNumber: 12
   _isTypeVerified: 1
   _unitCard:
+    _cardSet: {fileID: 11400000, guid: f0025c2ed30598b4e8953bb7e9e36228, type: 2}
     _title: Samus Aran
     _cardType: 0
     _cardNumber: 12
