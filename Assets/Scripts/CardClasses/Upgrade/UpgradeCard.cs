@@ -8,7 +8,7 @@
 ///You must set the UpgradeType enum, and power if UpgradeType is Weapon.
 /// </summary>
 [System.Serializable]
-public class UpgradeCard: Card
+public class UpgradeCard: Card// INHERITANCE
 {
     public enum UpgradeType
     {
@@ -17,7 +17,7 @@ public class UpgradeCard: Card
     }
     [SerializeField] private UpgradeType _upgradeType;
     [SerializeField] private int _power = 0;
-    public int Power
+    public int Power// ENCAPSULATION
     {
        get => _power;
        private set
@@ -31,10 +31,10 @@ public class UpgradeCard: Card
                 _power = value;
         }
     }
-    public CardType ThisCardType { get => _cardType; private set => _cardType = CardType.Upgrade; }
+    public CardType ThisCardType { get => _cardType; private set => _cardType = CardType.Upgrade; }// ENCAPSULATION
    
 
-    public UpgradeType ThisUpgradeType
+    public UpgradeType ThisUpgradeType// ENCAPSULATION
     {
         get => _upgradeType;
         private set

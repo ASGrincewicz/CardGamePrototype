@@ -20,7 +20,7 @@ using UnityEngine;
 public class Card
 {
     [SerializeField] protected CardLibraryObject _cardSet;
-    public CardLibraryObject CardSet
+    public CardLibraryObject CardSet// ENCAPSULATION
     {
         get => _cardSet;
         private set
@@ -38,7 +38,7 @@ public class Card
     public string Title { get => _title; set => _title = value; }
     [SerializeField] protected CardType _cardType;
     [SerializeField] protected int _cardNumber = 0;
-    public int CardNumber
+    public int CardNumber// ENCAPSULATION
     {
         get => _cardNumber;
         set
@@ -50,8 +50,8 @@ public class Card
         }
     }
     [SerializeField] protected CardRarity _rarity = CardRarity.Common;
-    public CardRarity Rarity { get => _rarity; }
+    public CardRarity Rarity { get => _rarity; }// ENCAPSULATION
     [Multiline] [SerializeField] protected string _cardText = "Card Text";
-    public string CardText { get => _cardText; set => _cardText = value; }
+    public string CardText { get => _cardText; set => _cardText = value; }// ENCAPSULATION
     [SerializeField] protected Sprite _cardImageSprite = null;
 }

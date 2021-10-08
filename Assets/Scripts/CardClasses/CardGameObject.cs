@@ -4,7 +4,7 @@ using TMPro;
 /// <summary>
 /// This class is inherited by other Card Game Object classes.
 /// </summary>
-public abstract class CardGameObject: MonoBehaviour
+public abstract class CardGameObject: MonoBehaviour// INHERITANCE
 {
     [SerializeField] protected bool _isCardVerified;
     [SerializeField] protected TMP_Text _titleText;
@@ -15,12 +15,12 @@ public abstract class CardGameObject: MonoBehaviour
     [SerializeField] protected Color[] _cardClassColors = new Color[7];
     public bool CardVerified { get => _isCardVerified; private set => _isCardVerified = value; }
 
-    protected abstract void OnValidate();
-    protected abstract void OnEnable();
+    protected abstract void OnValidate();// INHERITANCE
+    protected abstract void OnEnable();// INHERITANCE
     /// <summary>
     /// This Method should be called to play a card, rather than PlayCard();
     /// </summary>
-    protected void VerifyCardToPlay()
+    protected void VerifyCardToPlay()// ABSTRACTION
     {
         if (_isCardVerified)
         {

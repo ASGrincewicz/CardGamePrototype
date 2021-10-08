@@ -13,7 +13,7 @@
 /// are added to the required variables.
 /// </summary>
 [System.Serializable]
-public class UnitCard: Card
+public class UnitCard: Card// INHERITANCE
 {
     [SerializeField] private int _hitPoints = 0;
     [SerializeField] private int _power = 0;

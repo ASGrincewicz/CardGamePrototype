@@ -6,10 +6,10 @@ using System;
 /// in a Prefab with the <c>UnitCardGameObject</c> component.
 /// </summary>
 [CreateAssetMenu(menuName ="Card/Character Card")]
-public class UnitCardObject: CardObject
+public class UnitCardObject: CardObject// INHERITANCE
 {
     [SerializeField] private UnitCard _unitCard;
-    public UnitCard ThisUnitCard
+    public UnitCard ThisUnitCard// ENCAPSULATION
     {
         get => _unitCard;
         set

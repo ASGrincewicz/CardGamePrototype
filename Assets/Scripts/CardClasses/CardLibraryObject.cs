@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class CardLibraryObject: ScriptableObject
 {
      private CardLibrary _cardSet;
-    public CardLibrary ThisCardLibrary
+    public CardLibrary ThisCardLibrary// ENCAPSULATION
     {
         get => _cardSet;
         private set
@@ -16,8 +16,6 @@ public class CardLibraryObject: ScriptableObject
         }
     }
     
-    [SerializeField] private string _filePath;
-
     [SerializeField] private List<CardObject> _cards = new List<CardObject>();
 
 

@@ -5,11 +5,11 @@ using System;
 /// Must have <c>UpgradeCardObject</c> assigned
 /// in order to function.
 /// </summary>
-public class UpgradeCardGameObject: CardGameObject
+public class UpgradeCardGameObject: CardGameObject// INHERITANCE
 {
     [SerializeField] private UpgradeCardObject _upgradeCardSO;
     [SerializeField] private UpgradeCard _upgradeCard => _upgradeCardSO.ThisUpgradeCard;
-    public UpgradeCardObject CardObject
+    public UpgradeCardObject CardObject// ENCAPSULATION
     {
         get => _upgradeCardSO;
         set
@@ -21,7 +21,7 @@ public class UpgradeCardGameObject: CardGameObject
         }
     }
     #region Inherited Methods
-    protected override void OnValidate()
+    protected override void OnValidate()// POLYMORPHISM
     {
         try
         {
@@ -49,7 +49,7 @@ public class UpgradeCardGameObject: CardGameObject
         }
     }
 
-    protected override void OnEnable()
+    protected override void OnEnable()// POLYMORPHISM
     {
         try
         {
@@ -59,7 +59,7 @@ public class UpgradeCardGameObject: CardGameObject
                 throw new NullReferenceException();
             }
             else
-                VerifyCardToPlay();
+                VerifyCardToPlay();// ABSTRACTION
         }
 
         catch (NullReferenceException ex)
@@ -68,7 +68,7 @@ public class UpgradeCardGameObject: CardGameObject
         }
     }
 
-    protected override void PlayCard()
+    protected override void PlayCard()// POLYMORPHISM
     {
         Debug.Log($"{this.gameObject.name} was played.");
     }
