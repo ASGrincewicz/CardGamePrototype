@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-
 ///<summary>
 ///<c>Card</c> is the base class for all card types.
 ///All cards should have:
@@ -20,6 +16,12 @@ using UnityEngine;
 public class Card
 {
     [SerializeField] protected CardLibraryObject _cardSet;
+    [SerializeField] protected string _title = "Card Title";
+    [SerializeField] protected CardType _cardType;
+    [SerializeField] protected int _cardNumber = 0;
+    [SerializeField] protected CardRarity _rarity = CardRarity.Common;
+    [Multiline] [SerializeField] protected string _cardText = "Card Text";
+    [SerializeField] protected Sprite _cardImageSprite = null;
     public CardLibraryObject CardSet// ENCAPSULATION
     {
         get => _cardSet;
@@ -34,10 +36,7 @@ public class Card
             }
         }
     }
-    [SerializeField] protected string _title = "Card Title";
     public string Title { get => _title; set => _title = value; }
-    [SerializeField] protected CardType _cardType;
-    [SerializeField] protected int _cardNumber = 0;
     public int CardNumber// ENCAPSULATION
     {
         get => _cardNumber;
@@ -49,9 +48,6 @@ public class Card
                 _cardNumber = value;
         }
     }
-    [SerializeField] protected CardRarity _rarity = CardRarity.Common;
     public CardRarity Rarity { get => _rarity; }// ENCAPSULATION
-    [Multiline] [SerializeField] protected string _cardText = "Card Text";
     public string CardText { get => _cardText; set => _cardText = value; }// ENCAPSULATION
-    [SerializeField] protected Sprite _cardImageSprite = null;
 }

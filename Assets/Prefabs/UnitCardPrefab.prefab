@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: _unitCardSO
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 399215498108045912, guid: 121b4042a98371141b9898c53381011d, type: 3}
+      propertyPath: m_text
+      value: Card Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 399215498108045912, guid: 121b4042a98371141b9898c53381011d, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4308900634265155413, guid: 121b4042a98371141b9898c53381011d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5790147492604161300, guid: 121b4042a98371141b9898c53381011d, type: 3}
       propertyPath: m_Name
-      value: 12_Samus Aran_card
+      value: UnitCardPrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121b4042a98371141b9898c53381011d, type: 3}

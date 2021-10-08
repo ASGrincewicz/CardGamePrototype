@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System;
-///<summary>
+﻿///<summary>
 ///The Class <c>ActionCard</c> is the base for :
 ///<list type="bullet">
 ///<item>Action</item>

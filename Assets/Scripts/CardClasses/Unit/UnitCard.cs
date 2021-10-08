@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-
-
 ///<summary>
 ///The Class <c>UnitCard</c> is the base for :
 ///<list type="bullet">
