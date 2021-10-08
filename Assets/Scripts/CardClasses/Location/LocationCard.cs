@@ -36,6 +36,7 @@ public class LocationCard: Card
                 _climateTemp = value;
         }
     }
+
 }
 
 
