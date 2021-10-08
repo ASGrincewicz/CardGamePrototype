@@ -36,7 +36,8 @@ public class UnitCardGameObject :CardGameObject
             else
             {
                 _isCardVerified = true;
-                this.gameObject.name = $"{_unitCard.CardNumber}_{_unitCard.Title}_card";
+                if (this.gameObject.activeInHierarchy)
+                    this.gameObject.name = $"{_unitCard.CardNumber}_{_unitCard.Title}_card";
                 _cardBorder.color = _rarityColors[(int)_unitCard.Rarity];
                 _cardImage.color = _cardClassColors[(int)_unitCard.ThisCardType];
                 _cardText.text = $"{_unitCard.CardText}";
@@ -45,7 +46,8 @@ public class UnitCardGameObject :CardGameObject
         }
         catch(NullReferenceException ex)
         {
-            Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
+            if (this.gameObject.activeInHierarchy)
+                Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
         }
     }
 

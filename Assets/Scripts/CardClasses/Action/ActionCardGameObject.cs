@@ -36,7 +36,9 @@ public class ActionCardGameObject: CardGameObject
             }
             else
             {
-                this.gameObject.name = $"{_actionCard.CardNumber}_{_actionCard.Title}_card";
+                if(this.gameObject.activeInHierarchy)
+                     this.gameObject.name = $"{_actionCard.CardNumber}_{_actionCard.Title}_card";
+
                 _isCardVerified = true;
                 _cardBorder.color = _rarityColors[(int)_actionCard.Rarity];
                 _cardImage.color = _cardClassColors[(int)_actionCard.ThisCardType];
@@ -46,7 +48,8 @@ public class ActionCardGameObject: CardGameObject
         }
         catch (NullReferenceException ex)
         {
-            Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
+            if (this.gameObject.activeInHierarchy)
+                Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
         }
     }
 

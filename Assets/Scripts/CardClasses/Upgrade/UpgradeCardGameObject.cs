@@ -33,7 +33,8 @@ public class UpgradeCardGameObject: CardGameObject
             }
             else
             {
-                this.gameObject.name = $"{_upgradeCard.CardNumber}_{_upgradeCard.Title}_card";
+                if (this.gameObject.activeInHierarchy)
+                    this.gameObject.name = $"{_upgradeCard.CardNumber}_{_upgradeCard.Title}_card";
                 _isCardVerified = true;
                 _cardBorder.color = _rarityColors[(int)_upgradeCard.Rarity];
                 _cardImage.color = _cardClassColors[(int)_upgradeCard.ThisCardType];
@@ -43,7 +44,8 @@ public class UpgradeCardGameObject: CardGameObject
         }
         catch (NullReferenceException ex)
         {
-            Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
+            if (this.gameObject.activeInHierarchy)
+                Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
         }
     }
 
