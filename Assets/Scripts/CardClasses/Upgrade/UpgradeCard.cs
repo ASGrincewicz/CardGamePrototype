@@ -31,7 +31,22 @@ public class UpgradeCard: Card// INHERITANCE
                 _power = value;
         }
     }
-    public CardType ThisCardType { get => _cardType; private set => _cardType = CardType.Upgrade; }// ENCAPSULATION
+    public CardType ThisCardType
+    {
+        get => _cardType;
+        private set
+        {
+            if (value != CardType.Upgrade)
+            {
+                Debug.Log("Changing this variable will result in errors.");
+                value = CardType.Upgrade;
+                _cardType = value;
+            }
+               
+            else
+                _cardType = CardType.Upgrade;
+        }// ENCAPSULATION
+    }
    
 
     public UpgradeType ThisUpgradeType// ENCAPSULATION

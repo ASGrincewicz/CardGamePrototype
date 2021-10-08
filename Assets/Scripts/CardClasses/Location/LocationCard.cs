@@ -11,8 +11,31 @@
 [System.Serializable]
 public class LocationCard: Card
 {
-    [SerializeField] private EnvironmentType _environmentType;
-    [SerializeField] private ClimateTemp _climateTemp;
+    [SerializeField] protected EnvironmentType _environmentType;
+    [SerializeField] protected ClimateTemp _climateTemp;
+    public CardType ThisCardType { get => _cardType; private set => _cardType = CardType.Location; }// ENCAPSULATION
+    public EnvironmentType ThisEnvironMentType
+    {
+        get => _environmentType;
+        private set
+        {
+            if (value == EnvironmentType.Space && _climateTemp != ClimateTemp.Vaccuum)
+                _climateTemp = ClimateTemp.Vaccuum;
+            else
+                _environmentType = value;
+        }
+    }
+    public ClimateTemp ThisClimateTemp
+    {
+        get => _climateTemp;
+        private set
+        {
+            if (value == ClimateTemp.Vaccuum && _environmentType != EnvironmentType.Space)
+                _environmentType = EnvironmentType.Space;
+            else
+                _climateTemp = value;
+        }
+    }
 }
 
 
