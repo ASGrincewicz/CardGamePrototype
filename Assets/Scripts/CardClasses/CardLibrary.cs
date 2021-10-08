@@ -19,7 +19,7 @@ public class CardLibrary
 {
     [SerializeField] private string _setName = "Base Set";
    [SerializeField] private Dictionary<string, int> _cardLibrary = new Dictionary<string, int>();
-    public Dictionary<string, int> CardSet
+    public Dictionary<string, int> CardSet// ENCAPSULATION
     {
         get => _cardLibrary;
         set
@@ -34,7 +34,7 @@ public class CardLibrary
     /// </summary>
     /// <param name="card"></param>
     /// <param name="cardNumber"></param>
-    public void AddToCardLibrary(string cardName, int cardNumber)
+    public void AddToCardLibrary(string cardName, int cardNumber)// ABSTRACTION
     {
         if (_cardLibrary.ContainsKey(cardName))
         {
@@ -51,7 +51,7 @@ public class CardLibrary
     /// </summary>
     /// <param name="cardName"></param>
     /// <param name="cardNumber"></param>
-    public void RemoveCardFromLibrary(string cardName, int cardNumber)
+    public void RemoveCardFromLibrary(string cardName, int cardNumber)// ABSTRACTION
     {
         if (_cardLibrary.ContainsKey(cardName))
         {
@@ -66,7 +66,7 @@ public class CardLibrary
     /// <param name="cardName"></param>
     /// <param name="cardNumber"></param>
     /// <returns></returns>
-    public bool ValidateCardInLibrary(string cardName, int cardNumber)
+    public bool ValidateCardInLibrary(string cardName, int cardNumber)// ABSTRACTION
     {
         if (_cardLibrary.ContainsKey(cardName))
             return true;

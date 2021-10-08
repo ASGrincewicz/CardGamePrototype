@@ -9,8 +9,8 @@ public abstract class CardObject: ScriptableObject
     protected int _cardNumber;
     [SerializeField] protected bool _isTypeVerified;
 
-    public bool TypeVerified { get => _isTypeVerified; private set => _isTypeVerified = value; }
-    public string Title { get => _title; private set => _title = value; }
-    public int CardNumber { get => _cardNumber; private set => _cardNumber = value; }
+    public bool TypeVerified { get => _isTypeVerified; private set => _isTypeVerified = value; }// ENCAPSULATION
+    public string Title { get => _title; private set => _title = value; }// ENCAPSULATION
+    public int CardNumber { get => _cardNumber; private set => _cardNumber = value; }// ENCAPSULATION
     protected abstract void OnValidate();
 }

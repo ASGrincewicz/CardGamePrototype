@@ -5,12 +5,12 @@ using System;
 /// Must have <c>ActionCardObject</c> assigned
 /// in order to function.
 /// </summary>
-public class ActionCardGameObject: CardGameObject
+public class ActionCardGameObject: CardGameObject// INHERITANCE
 {
 
     [SerializeField] private ActionCardObject _actionCardSO;
     [SerializeField] private ActionCard _actionCard => _actionCardSO.ThisActionCard;
-    public ActionCardObject CardObject
+    public ActionCardObject CardObject// ENCAPSULATION
     {
         get => _actionCardSO;
         set
@@ -24,7 +24,7 @@ public class ActionCardGameObject: CardGameObject
         }
     }
     #region Inherited Methods
-    protected override void OnValidate()
+    protected override void OnValidate()// POLYMORPHISM
     {
         try
         {
@@ -53,7 +53,7 @@ public class ActionCardGameObject: CardGameObject
         }
     }
 
-    protected override void OnEnable()
+    protected override void OnEnable()// POLYMORPHISM
     {
         try
         {
@@ -63,7 +63,7 @@ public class ActionCardGameObject: CardGameObject
                 throw new NullReferenceException();
             }
             else
-                VerifyCardToPlay();
+                VerifyCardToPlay();// ABSTRACTION
 
         }
 

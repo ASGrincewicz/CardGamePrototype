@@ -5,11 +5,11 @@ using System;
 /// in a Prefab with the <c>UpgradeCardGameObject</c> component.
 /// </summary>
 [CreateAssetMenu(menuName ="Card/Upgrade Card")]
-public class UpgradeCardObject:CardObject
+public class UpgradeCardObject:CardObject// INHERITANCE
 {
     [SerializeField] private UpgradeCard _upgradeCard = new UpgradeCard();
 
-    public UpgradeCard ThisUpgradeCard
+    public UpgradeCard ThisUpgradeCard// ENCAPSULATION
     {
         get => _upgradeCard;
         set

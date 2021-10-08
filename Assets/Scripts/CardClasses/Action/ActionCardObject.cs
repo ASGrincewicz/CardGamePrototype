@@ -5,11 +5,11 @@ using System;
 /// in a Prefab with the <c>ActionCardGameObject</c> component.
 /// </summary>
 [CreateAssetMenu(menuName = "Card/Action Card")]
-public class ActionCardObject: CardObject
+public class ActionCardObject: CardObject// INHERITANCE
 { 
     [SerializeField] private ActionCard _actionCard = new ActionCard();
 
-    public ActionCard ThisActionCard
+    public ActionCard ThisActionCard// ENCAPSULATION
     {
         get => _actionCard;
         set
