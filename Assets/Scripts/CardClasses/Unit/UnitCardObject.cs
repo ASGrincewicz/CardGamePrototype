@@ -5,7 +5,7 @@ using System;
 /// Assign this Scriptable Object to the specified field
 /// in a Prefab with the <c>UnitCardGameObject</c> component.
 /// </summary>
-[CreateAssetMenu(menuName ="Card/Character Card")]
+[CreateAssetMenu(menuName ="Card/Unit Card")]
 public class UnitCardObject: CardObject// INHERITANCE
 {
     [SerializeField] private UnitCard _unitCard;

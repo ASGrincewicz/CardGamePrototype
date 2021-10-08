@@ -52,11 +52,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 399215498108045912, guid: 121b4042a98371141b9898c53381011d, type: 3}
       propertyPath: m_text
-      value: Wave Beam
+      value: Upgrade Card
       objectReference: {fileID: 0}
     - target: {fileID: 399215498108045912, guid: 121b4042a98371141b9898c53381011d, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 399215498555195447, guid: 121b4042a98371141b9898c53381011d, type: 3}
       propertyPath: m_Color.a
