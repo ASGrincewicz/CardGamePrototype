@@ -37,6 +37,10 @@ public class UnitCardGameObject :CardGameObject
             {
                 _isCardVerified = true;
                 this.gameObject.name = $"{_unitCard.CardNumber}_{_unitCard.Title}_card";
+                _cardBorder.color = _rarityColors[(int)_unitCard.Rarity];
+                _cardImage.color = _cardClassColors[(int)_unitCard.ThisCardType];
+                _cardText.text = $"{_unitCard.CardText}";
+                _titleText.text = $"{_unitCard.Title}";
             }
         }
         catch(NullReferenceException ex)

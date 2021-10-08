@@ -31,17 +31,8 @@ public class UpgradeCard: Card
                 _power = value;
         }
     }
-    public CardType ThisCardType
-    {
-        get => _cardType;
-        private set
-        {
-           if(_cardType != CardType.Upgrade)
-                    Debug.Log($"{_cardType} should not be of type: UpgradeCard. Please check the Card Type.");
-            else
-               _cardType = value;
-        }
-    }
+    public CardType ThisCardType { get => _cardType; private set => _cardType = CardType.Upgrade; }
+   
 
     public UpgradeType ThisUpgradeType
     {

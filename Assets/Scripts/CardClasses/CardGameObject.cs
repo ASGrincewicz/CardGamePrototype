@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 /// <summary>
 /// This class is inherited by other Card Game Object classes.
 /// </summary>
 public abstract class CardGameObject: MonoBehaviour
 {
     [SerializeField] protected bool _isCardVerified;
+    [SerializeField] protected TMP_Text _titleText;
+    [SerializeField] protected TMP_Text _cardText;
+    [SerializeField] protected Image _cardBorder;
+    [SerializeField] protected Image _cardImage;
+    [SerializeField] protected Color[] _rarityColors = new Color[4];
+    [SerializeField] protected Color[] _cardClassColors = new Color[7];
     public bool CardVerified { get => _isCardVerified; private set => _isCardVerified = value; }
 
     protected abstract void OnValidate();

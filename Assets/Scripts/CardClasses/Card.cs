@@ -50,6 +50,8 @@ public class Card
         }
     }
     [SerializeField] protected CardRarity _rarity = CardRarity.Common;
+    public CardRarity Rarity { get => _rarity; }
     [Multiline] [SerializeField] protected string _cardText = "Card Text";
+    public string CardText { get => _cardText; set => _cardText = value; }
     [SerializeField] protected Sprite _cardImageSprite = null;
 }

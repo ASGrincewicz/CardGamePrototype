@@ -23,15 +23,15 @@ public class CardLibraryObject: ScriptableObject
 
     private void OnValidate()
     {
-
+        if (_cardSet == null)
+            _cardSet = new CardLibrary();
         foreach (var card in _cards)
         {
             if (card.TypeVerified && !_cardSet.CardSet.ContainsKey(card.Title) && !_cardSet.CardSet.ContainsValue(card.CardNumber))
                 _cardSet.AddToCardLibrary(card.Title, card.CardNumber);
-            else if(!card.TypeVerified && _cardSet.CardSet.ContainsKey(card.Title) && _cardSet.CardSet.ContainsValue(card.CardNumber))
+            else
             {
                 _cardSet.RemoveCardFromLibrary(card.Title, card.CardNumber);
-                _cards.Remove(card);
             }
         }
         Debug.Log(_cardSet.CardSet.Count);

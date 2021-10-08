@@ -5,8 +5,8 @@
 /// </summary>
 public abstract class CardObject: ScriptableObject
 {
-    [SerializeField] protected string _title;
-    [SerializeField] protected int _cardNumber;
+    protected string _title;
+    protected int _cardNumber;
     [SerializeField] protected bool _isTypeVerified;
 
     public bool TypeVerified { get => _isTypeVerified; private set => _isTypeVerified = value; }

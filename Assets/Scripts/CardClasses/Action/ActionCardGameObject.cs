@@ -38,6 +38,10 @@ public class ActionCardGameObject: CardGameObject
             {
                 this.gameObject.name = $"{_actionCard.CardNumber}_{_actionCard.Title}_card";
                 _isCardVerified = true;
+                _cardBorder.color = _rarityColors[(int)_actionCard.Rarity];
+                _cardImage.color = _cardClassColors[(int)_actionCard.ThisCardType];
+                _cardText.text = $"{_actionCard.CardText}";
+                _titleText.text = $"{_actionCard.Title}";
             }
         }
         catch (NullReferenceException ex)

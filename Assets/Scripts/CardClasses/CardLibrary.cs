@@ -18,7 +18,7 @@ using UnityEngine;
 public class CardLibrary
 {
     [SerializeField] private string _setName = "Base Set";
-    private Dictionary<string, int> _cardLibrary = new Dictionary<string, int>();
+   [SerializeField] private Dictionary<string, int> _cardLibrary = new Dictionary<string, int>();
     public Dictionary<string, int> CardSet
     {
         get => _cardLibrary;
@@ -37,7 +37,9 @@ public class CardLibrary
     public void AddToCardLibrary(string cardName, int cardNumber)
     {
         if (_cardLibrary.ContainsKey(cardName))
+        {
             Debug.Log("Already Exists");
+        }
         else
         {
             _cardLibrary.Add(cardName, cardNumber);
@@ -66,9 +68,7 @@ public class CardLibrary
     /// <returns></returns>
     public bool ValidateCardInLibrary(string cardName, int cardNumber)
     {
-        int libraryValue;
-        _cardLibrary.TryGetValue(cardName, out libraryValue);
-        if (libraryValue == cardNumber)
+        if (_cardLibrary.ContainsKey(cardName))
             return true;
         else
             return false;

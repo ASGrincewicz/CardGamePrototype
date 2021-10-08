@@ -35,6 +35,10 @@ public class UpgradeCardGameObject: CardGameObject
             {
                 this.gameObject.name = $"{_upgradeCard.CardNumber}_{_upgradeCard.Title}_card";
                 _isCardVerified = true;
+                _cardBorder.color = _rarityColors[(int)_upgradeCard.Rarity];
+                _cardImage.color = _cardClassColors[(int)_upgradeCard.ThisCardType];
+                _cardText.text = $"{_upgradeCard.CardText}";
+                _titleText.text = $"{_upgradeCard.Title}";
             }
         }
         catch (NullReferenceException ex)
