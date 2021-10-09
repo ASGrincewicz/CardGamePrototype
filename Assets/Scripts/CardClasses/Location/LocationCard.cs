@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+
 ///<summary>
-///The Class <c>LocationCard</c> is the base for :
+///The Class LocationCardis the base for :
 ///<list type="bullet">
 ///<item>Location</item>
 //////<item>Level</item>
@@ -9,11 +10,11 @@
 /// are added to the required variables.
 /// </summary>
 [System.Serializable]
-public class LocationCard: Card
+public class LocationCard: Card<LocationCard>
 {
     [SerializeField] protected EnvironmentType _environmentType;
     [SerializeField] protected ClimateTemp _climateTemp;
-    public CardType ThisCardType { get => _cardType; private set => _cardType = CardType.Location; }// ENCAPSULATION
+    public new CardType ThisCardType { get => _cardType; private set => _cardType = CardType.Location; }// ENCAPSULATION
     public EnvironmentType ThisEnvironMentType
     {
         get => _environmentType;

@@ -13,7 +13,7 @@ using UnityEngine;
 ///</list>
 /// </summary>
 [System.Serializable]
-public class Card
+public class Card<T>
 {
     [SerializeField] protected CardLibraryObject _cardSet;
     [SerializeField] protected string _title = "Card Title";
@@ -50,4 +50,5 @@ public class Card
     }
     public CardRarity Rarity { get => _rarity; }// ENCAPSULATION
     public string CardText { get => _cardText; set => _cardText = value; }// ENCAPSULATION
+    public CardType ThisCardType { get => _cardType; protected set => _cardType = value; }
 }

@@ -5,44 +5,29 @@ using System;
 /// in a Prefab with the <c>UpgradeCardGameObject</c> component.
 /// </summary>
 [CreateAssetMenu(menuName ="Card/Upgrade Card")]
-public class UpgradeCardObject:CardObject// INHERITANCE
+public class UpgradeCardObject:CardObject<UpgradeCard>// INHERITANCE
 {
-    [SerializeField] private UpgradeCard _upgradeCard = new UpgradeCard();
-
-    public UpgradeCard ThisUpgradeCard// ENCAPSULATION
+   [SerializeField] protected new UpgradeCard _thisCard;
+    
+    protected override void SetCard(UpgradeCard card)
     {
-        get => _upgradeCard;
-        set
+        if (_thisCard.ThisCardType != CardType.Upgrade)
         {
-           if(_upgradeCard.ThisCardType != CardType.Upgrade)
-           {
-                Debug.Log($"{_upgradeCard.ThisCardType} should not be of type: UpgradeCard. Please check the Card Type.");
-                _isTypeVerified = false;
-           }
-           else if(_upgradeCard.Power > 0 && _upgradeCard.ThisUpgradeType != UpgradeCard.UpgradeType.Weapon)
-            {
-                _isTypeVerified = false;
-                Debug.Log($"Only Weapons should have a Power > 0. It is currently set to {_upgradeCard.Power}.");
-            }
-           else
-            {
-                _upgradeCard = value;
-                _isTypeVerified = true;
-                _title = _upgradeCard.Title;
-                _cardNumber = _upgradeCard.CardNumber;
-            }
+            Debug.Log($"{_thisCard.ThisCardType} should not be of type: UpgradeCard. Please check the Card Type.");
+            _isTypeVerified = false;
+        }
+        else if (_thisCard.Power > 0 && _thisCard.ThisUpgradeType != UpgradeCard.UpgradeType.Weapon)
+        {
+            _isTypeVerified = false;
+            Debug.Log($"Only Weapons should have a Power > 0. It is currently set to {_thisCard.Power}.");
+        }
+        else
+        {
+            _thisCard = card;
+            _isTypeVerified = true;
+            _title = _thisCard.Title;
+            _cardNumber = _thisCard.CardNumber;
         }
     }
-
-    protected override void OnValidate()
-    {
-        try
-        {
-            ThisUpgradeCard = _upgradeCard;
-        }
-        catch (NullReferenceException ex)
-        {
-            Debug.Log("Please assign an Upgrade Card to this game object.");
-        }
-    }
+    
 }

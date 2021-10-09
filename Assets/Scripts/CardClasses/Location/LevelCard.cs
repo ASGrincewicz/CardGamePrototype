@@ -18,6 +18,7 @@ public class LevelCard: LocationCard
     [SerializeField] private LocationCard _currentLocation;
     /// <summary>
     /// Determines where this Level can connect to other Levels.
+    /// Levels can have multiple available directions.
     /// </summary>
     [Flags]
     public enum Directions { Up, Down, Left, Right, All}

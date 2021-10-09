@@ -5,8 +5,8 @@
 /// </list>
 /// </summary>
 [System.Serializable]
-public class ActionCard: Card// INHERITANCE
+public class ActionCard: Card<ActionCard>// INHERITANCE
 {
-    public CardType ThisCardType { get => _cardType; private set => _cardType = CardType.Action; }// ENCAPSULATION
+   // ENCAPSULATION
 }
 

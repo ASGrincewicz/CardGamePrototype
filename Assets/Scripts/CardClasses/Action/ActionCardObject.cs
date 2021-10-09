@@ -1,44 +1,27 @@
 ﻿using UnityEngine;
-using System;
 /// <summary>
 /// Assign this Scriptable Object to the specified field
-/// in a Prefab with the <c>ActionCardGameObject</c> component.
+/// in a Prefab with the ActionCardGameObject component.
 /// </summary>
 [CreateAssetMenu(menuName = "Card/Action Card")]
-public class ActionCardObject: CardObject// INHERITANCE
-{ 
-    [SerializeField] private ActionCard _actionCard = new ActionCard();
-
-    public ActionCard ThisActionCard// ENCAPSULATION
+public class ActionCardObject: CardObject<ActionCard>// INHERITANCE
+{
+    //[SerializeField] protected new ActionCard _thisCard;
+    
+    protected override void SetCard(Card<ActionCard> card)
     {
-        get => _actionCard;
-        set
+        if (_thisCard.ThisCardType != CardType.Action)
         {
-            if (_actionCard.ThisCardType != CardType.Action)
-            {
-                Debug.Log($"{_actionCard.ThisCardType} should not be of type: ActionCard. Please check the Card Type.");
-                _isTypeVerified = false;
-            }
-           
-            else
-            {
-                _actionCard = value;
-                _isTypeVerified = true;
-                _title = _actionCard.Title;
-                _cardNumber = _actionCard.CardNumber;
-            }
+            Debug.Log($"{_thisCard.ThisCardType} should not be of type: ActionCard. Please check the Card Type.");
+            _isTypeVerified = false;
+        }
+
+        else
+        {
+            _thisCard = card;
+            _isTypeVerified = true;
+            _title = _thisCard.Title;
+            _cardNumber = _thisCard.CardNumber;
         }
     }
-    protected override void OnValidate()
-    {
-        try
-        {
-            ThisActionCard = _actionCard;
-        }
-        catch (NullReferenceException ex)
-        {
-            Debug.Log("Please assign an Action Card to this game object.");
-        }
-    }
-
 }

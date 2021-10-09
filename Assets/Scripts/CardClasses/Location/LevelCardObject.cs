@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
+using System;
 /// <summary>
 /// Assign this Scriptable Object to the specified field
-/// in a Prefab with the LocationCardGameObject component.
+/// in a Prefab with the LevelCardGameObject component.
 /// </summary>
-[CreateAssetMenu(menuName = ("Card/ Location Card"))]
-public class LocationCardObject : CardObject<LocationCard>
+[CreateAssetMenu(menuName = "Card/Level")]
+public class LevelCardObject : CardObject<LevelCard>
 {
-    //[SerializeField] protected new LocationCard _thisCard;
-    protected override void SetCard(Card<LocationCard> card)
+    //[SerializeField] protected new LevelCard _thisCard;
+    protected override void SetCard(Card<LevelCard> card)
     {
         if (_thisCard.ThisCardType != CardType.Location)
         {
-            Debug.Log($"{_thisCard.ThisCardType} should not be of type: LocationCard. Please check the Card Type.");
+            Debug.Log($"{_thisCard.ThisCardType} should not be of type: LevelCard. Please check the Card Type.");
             _isTypeVerified = false;
         }
 

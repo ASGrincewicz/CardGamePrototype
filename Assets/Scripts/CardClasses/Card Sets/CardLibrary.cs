@@ -13,17 +13,17 @@ using UnityEngine;
 /// </summary>
 
 [System.Serializable]
-public class CardLibrary
+public class CardLibrary<K, V>
 {
     [SerializeField] private string _setName = "Base Set";
-   [SerializeField] private Dictionary<string, int> _cardLibrary = new Dictionary<string, int>();
-    public Dictionary<string, int> CardSet// ENCAPSULATION
+   [SerializeField] private Dictionary<K, V> _cardLibrary = new ();
+    public Dictionary<K, V> CardSet// ENCAPSULATION
     {
         get => _cardLibrary;
         set
         {
             if(_cardLibrary == null)
-                _cardLibrary = new Dictionary<string, int>();
+                _cardLibrary = new ();
         }
     }
     
@@ -32,16 +32,16 @@ public class CardLibrary
     /// </summary>
     /// <param name="card"></param>
     /// <param name="cardNumber"></param>
-    public void AddToCardLibrary(string cardName, int cardNumber)// ABSTRACTION
+    public void AddToCardLibrary(K t, V x)// ABSTRACTION
     {
-        if (_cardLibrary.ContainsKey(cardName))
+        if (_cardLibrary.ContainsKey(t))
         {
             Debug.Log("Already Exists");
         }
         else
         {
-            _cardLibrary.Add(cardName, cardNumber);
-            Debug.Log($"{cardName} has been added.");
+            _cardLibrary.Add(t, x);
+            //Debug.Log($"{cardName} has been added.");
         }
     }
     /// <summary>
@@ -49,12 +49,12 @@ public class CardLibrary
     /// </summary>
     /// <param name="cardName"></param>
     /// <param name="cardNumber"></param>
-    public void RemoveCardFromLibrary(string cardName, int cardNumber)// ABSTRACTION
+    public void RemoveCardFromLibrary(K key, V value)// ABSTRACTION
     {
-        if (_cardLibrary.ContainsKey(cardName))
+        if (_cardLibrary.ContainsKey(key))
         {
-            _cardLibrary.Remove(cardName);
-            Debug.Log($"{cardName} has been removed.");
+            _cardLibrary.Remove(key);
+            //Debug.Log($"{cardName} has been removed.");
         }
     }
     /// <summary>
@@ -64,9 +64,9 @@ public class CardLibrary
     /// <param name="cardName"></param>
     /// <param name="cardNumber"></param>
     /// <returns></returns>
-    public bool ValidateCardInLibrary(string cardName, int cardNumber)// ABSTRACTION
+    public bool ValidateCardInLibrary(K key, V value)// ABSTRACTION
     {
-        if (_cardLibrary.ContainsKey(cardName))
+        if (_cardLibrary.ContainsKey(key))
             return true;
         else
             return false;
