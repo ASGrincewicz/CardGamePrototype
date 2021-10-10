@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: Wave Beam
   m_EditorClassIdentifier: 
   _isTypeVerified: 1
-  _upgradeCard:
-    _cardSet: {fileID: 11400000, guid: f0025c2ed30598b4e8953bb7e9e36228, type: 2}
-    _title: Wave Beam
+  _thisCard:
+    _title: Card Title
     _cardType: 5
-    _cardNumber: 5
+    _cardNumber: 0
     _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}
-    _upgradeType: 1
-    _power: 5
+  _upgradeCard:
+    _title: Card Title
+    _cardType: 5
+    _cardNumber: 0
+    _rarity: 0
+    _cardText: Card Text
+    _cardImageSprite: {fileID: 0}
+    _upgradeType: 0
+    _power: 0

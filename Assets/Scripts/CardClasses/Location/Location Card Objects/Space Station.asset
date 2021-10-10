@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631aaf65439494b479a6100cb72de7b3, type: 3}
   m_Name: Space Station
   m_EditorClassIdentifier: 
-  _isTypeVerified: 0
-  _locationCard:
-    _cardSet: {fileID: 0}
+  _isTypeVerified: 1
+  _thisLocationCard:
     _title: Card Title
-    _cardType: 0
-    _cardNumber: 0
+    _cardType: 3
+    _cardNumber: 71
     _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}
-    _environmentType: 0
-    _climateTemp: 0
+    _environmentType: 3
+    _climateTemp: 3

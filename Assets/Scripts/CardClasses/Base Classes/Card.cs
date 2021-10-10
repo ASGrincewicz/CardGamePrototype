@@ -13,29 +13,14 @@ using UnityEngine;
 ///</list>
 /// </summary>
 [System.Serializable]
-public class Card<T>
-{
-    [SerializeField] protected CardLibraryObject _cardSet;
+public class Card
+{    
     [SerializeField] protected string _title = "Card Title";
     [SerializeField] protected CardType _cardType;
-    [SerializeField] protected int _cardNumber = 0;
+    [SerializeField][Range(1,250)] protected int _cardNumber = 0;
     [SerializeField] protected CardRarity _rarity = CardRarity.Common;
     [Multiline] [SerializeField] protected string _cardText = "Card Text";
     [SerializeField] protected Sprite _cardImageSprite = null;
-    public CardLibraryObject CardSet// ENCAPSULATION
-    {
-        get => _cardSet;
-        private set
-        {
-            if (_cardSet.ThisCardLibrary.ValidateCardInLibrary(_title, _cardNumber))
-                _cardSet = value;
-            else
-            {
-                _cardSet = null;
-                Debug.LogWarning("This Set does not contain the specific card. Check the card details.");
-            }
-        }
-    }
     public string Title { get => _title; set => _title = value; }
     public int CardNumber// ENCAPSULATION
     {

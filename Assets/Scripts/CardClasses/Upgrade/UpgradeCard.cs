@@ -8,7 +8,7 @@
 ///You must set the UpgradeType enum, and power if UpgradeType is Weapon.
 /// </summary>
 [System.Serializable]
-public class UpgradeCard: Card<UpgradeCard>// INHERITANCE
+public class UpgradeCard: Card// INHERITANCE
 {
     public enum UpgradeType
     {

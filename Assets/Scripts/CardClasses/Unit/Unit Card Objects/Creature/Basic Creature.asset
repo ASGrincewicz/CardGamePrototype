@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Basic Creature
   m_EditorClassIdentifier: 
   _isTypeVerified: 1
-  _unitCard:
-    _cardSet: {fileID: 11400000, guid: f0025c2ed30598b4e8953bb7e9e36228, type: 2}
-    _title: Creature
-    _cardType: 1
-    _cardNumber: 7
-    _rarity: 1
-    _cardText: Creature Ability
+  _thisUnitCard:
+    _title: Card Title
+    _cardType: 0
+    _cardNumber: 13
+    _rarity: 0
+    _cardText: Card Text
     _cardImageSprite: {fileID: 0}
+    _unitType: 1
     _hitPoints: 0
     _power: 0

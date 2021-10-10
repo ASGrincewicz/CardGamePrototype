@@ -5,20 +5,19 @@ using System;
 /// <summary>
 /// This class is inherited by other Card Game Object classes.
 /// </summary>
-public class CardGameObject<T> : MonoBehaviour// INHERITANCE
+public class CardGameObject : MonoBehaviour// INHERITANCE
 {
-    [SerializeField] protected CardObject<T> _cardSO;
-    [SerializeField] protected Card<T> _thisCard => _cardSO.GetCard();
+    [SerializeField] protected CardObject _cardSO;
     [SerializeField] protected bool _isCardVerified;
     [SerializeField] protected TMP_Text _titleText;
     [SerializeField] protected TMP_Text _cardText;
     [SerializeField] protected Image _cardBorder;
     [SerializeField] protected Image _cardImage;
-    [SerializeField] private Color[] _rarityColors = new Color[4];
-    [SerializeField] private Color[] _cardTypeColors = new Color[7];
+    [SerializeField] protected Color[] _rarityColors = new Color[4];
+    [SerializeField] protected Color[] _cardTypeColors = new Color[4];
    
     public bool CardVerified { get => _isCardVerified; private set => _isCardVerified = value; }
-    public CardObject<T> CardObject// ENCAPSULATION
+    public CardObject CardObject// ENCAPSULATION
     {
         get => _cardSO;
         set
@@ -44,12 +43,10 @@ public class CardGameObject<T> : MonoBehaviour// INHERITANCE
             {
                 _isCardVerified = true;
                 if (this.gameObject.activeInHierarchy)
-                    this.gameObject.name = $"{_thisCard.CardNumber}_{_thisCard.Title}_card";
+                    this.gameObject.name = $"{_cardSO.CardNumber}_{_cardSO.Title}_card";
 
-                _cardBorder.color = _rarityColors[(int)_thisCard.Rarity];
-                _cardImage.color = _cardTypeColors[(int)_thisCard.ThisCardType];
-                _cardText.text = $"{_thisCard.CardText}";
-                _titleText.text = $"{_thisCard.Title}";
+                SetColors((int)_cardSO.ThisCardType);
+                SetText();
             }
         }
         catch (NullReferenceException ex)
@@ -74,9 +71,19 @@ public class CardGameObject<T> : MonoBehaviour// INHERITANCE
 
         catch (NullReferenceException ex)
         {
-            Debug.Log($"You have not assigned a {_thisCard.ThisCardType} game object to {gameObject.name}!");
+            Debug.Log($"You have not assigned a {_cardSO.ThisCardType} game object to {gameObject.name}!");
         }
     }// INHERITANCE
+    protected virtual void SetColors(int typeColor)
+    {
+        _cardBorder.color = _rarityColors[(int)_cardSO.Rarity];
+        _cardImage.color = _cardTypeColors[typeColor];
+    }
+    protected virtual void SetText()
+    {
+        _cardText.text = $"{_cardSO.CardText}";
+        _titleText.text = $"{_cardSO.Title}";
+    }
     /// <summary>
     /// You should call <para>VerifyCardToPlay()</para> to play a card.
     /// This method executes gameplay and functionality for a card.

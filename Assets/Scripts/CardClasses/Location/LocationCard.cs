@@ -10,7 +10,7 @@
 /// are added to the required variables.
 /// </summary>
 [System.Serializable]
-public class LocationCard: Card<LocationCard>
+public class LocationCard: Card
 {
     [SerializeField] protected EnvironmentType _environmentType;
     [SerializeField] protected ClimateTemp _climateTemp;

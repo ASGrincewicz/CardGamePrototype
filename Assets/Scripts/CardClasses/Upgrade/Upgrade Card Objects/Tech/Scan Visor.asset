@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708f565c4862dca4f82ef06675df141f, type: 3}
   m_Name: Scan Visor
   m_EditorClassIdentifier: 
-  _isTypeVerified: 1
+  _isTypeVerified: 0
+  _thisCard:
+    _title: Card Title
+    _cardType: 0
+    _cardNumber: 0
+    _rarity: 0
+    _cardText: Card Text
+    _cardImageSprite: {fileID: 0}
   _upgradeCard:
-    _cardSet: {fileID: 11400000, guid: f0025c2ed30598b4e8953bb7e9e36228, type: 2}
-    _title: Scan Visor
-    _cardType: 5
-    _cardNumber: 15
-    _rarity: 3
+    _title: Card Title
+    _cardType: 0
+    _cardNumber: 0
+    _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}
     _upgradeType: 0

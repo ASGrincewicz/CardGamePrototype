@@ -16,14 +16,14 @@ using UnityEngine;
 public class CardLibrary<K, V>
 {
     [SerializeField] private string _setName = "Base Set";
-   [SerializeField] private Dictionary<K, V> _cardLibrary = new ();
+   [SerializeField] private Dictionary<K, V> _cardLibrary = new Dictionary<K, V>();
     public Dictionary<K, V> CardSet// ENCAPSULATION
     {
         get => _cardLibrary;
         set
         {
             if(_cardLibrary == null)
-                _cardLibrary = new ();
+                _cardLibrary = new Dictionary<K, V>();
         }
     }
     

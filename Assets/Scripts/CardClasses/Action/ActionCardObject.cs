@@ -4,24 +4,27 @@
 /// in a Prefab with the ActionCardGameObject component.
 /// </summary>
 [CreateAssetMenu(menuName = "Card/Action Card")]
-public class ActionCardObject: CardObject<ActionCard>// INHERITANCE
+public class ActionCardObject: CardObject// INHERITANCE
 {
-    //[SerializeField] protected new ActionCard _thisCard;
-    
-    protected override void SetCard(Card<ActionCard> card)
+    [SerializeField] protected ActionCard _thisActionCard;
+    public ActionCard GetCard() => _thisActionCard;
+    protected override void SetCard(ActionCard card)
     {
-        if (_thisCard.ThisCardType != CardType.Action)
+        if (_thisActionCard.ThisCardType != CardType.Action)
         {
-            Debug.Log($"{_thisCard.ThisCardType} should not be of type: ActionCard. Please check the Card Type.");
+            Debug.Log($"{_thisActionCard.ThisCardType} should not be of type: ActionCard. Please check the Card Type.");
             _isTypeVerified = false;
         }
 
         else
         {
-            _thisCard = card;
+            _thisActionCard = card;
             _isTypeVerified = true;
-            _title = _thisCard.Title;
-            _cardNumber = _thisCard.CardNumber;
+            _title = _thisActionCard.Title;
+            _cardNumber = _thisActionCard.CardNumber;
+            _cardText = _thisActionCard.CardText;
+            _rarity = _thisActionCard.Rarity;
+            _cardType = _thisActionCard.ThisCardType;
         }
     }
 }

@@ -4,23 +4,25 @@
 /// in a Prefab with the LocationCardGameObject component.
 /// </summary>
 [CreateAssetMenu(menuName = ("Card/ Location Card"))]
-public class LocationCardObject : CardObject<LocationCard>
+public class LocationCardObject : CardObject
 {
-    //[SerializeField] protected new LocationCard _thisCard;
-    protected override void SetCard(Card<LocationCard> card)
+    [SerializeField] protected LocationCard _thisLocationCard;
+    public LocationCard GetCard() => _thisLocationCard;
+    protected override void SetCard(LocationCard card)
     {
-        if (_thisCard.ThisCardType != CardType.Location)
+        if (_thisLocationCard.ThisCardType != CardType.Location)
         {
-            Debug.Log($"{_thisCard.ThisCardType} should not be of type: LocationCard. Please check the Card Type.");
+            Debug.Log($"{_thisLocationCard.ThisCardType} should not be of type: LocationCard. Please check the Card Type.");
             _isTypeVerified = false;
         }
 
         else
         {
-            _thisCard = card;
+            _thisLocationCard = card;
             _isTypeVerified = true;
-            _title = _thisCard.Title;
-            _cardNumber = _thisCard.CardNumber;
+            _title = _thisLocationCard.Title;
+            _cardNumber = _thisLocationCard.CardNumber;
+            _cardText = _thisLocationCard.CardText; 
         }
     }
 }

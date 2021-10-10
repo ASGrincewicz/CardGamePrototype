@@ -5,7 +5,7 @@ using System;
 /// Must have <c>UpgradeCardObject</c> assigned
 /// in order to function.
 /// </summary>
-public class UpgradeCardGameObject: CardGameObject<UpgradeCardObject>// INHERITANCE
+public class UpgradeCardGameObject: CardGameObject// INHERITANCE
 {
    
 }

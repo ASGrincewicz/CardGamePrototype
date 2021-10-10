@@ -4,7 +4,7 @@
 /// Must have LocationCardObject assigned
 /// in order to function.
 /// </summary>
-public class LocationCardGameObject : CardGameObject<LocationCardObject>
+public class LocationCardGameObject : CardGameObject
 {
    
 }

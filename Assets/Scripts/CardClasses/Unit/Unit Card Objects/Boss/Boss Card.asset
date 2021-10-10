@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: Boss Card
   m_EditorClassIdentifier: 
   _isTypeVerified: 1
-  _unitCard:
-    _cardSet: {fileID: 11400000, guid: f0025c2ed30598b4e8953bb7e9e36228, type: 2}
-    _title: Level 1 Boss
+  _thisCard:
+    _title: Card Title
     _cardType: 3
-    _cardNumber: 17
-    _rarity: 2
+    _cardNumber: 0
+    _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}
-    _hitPoints: 0
-    _power: 0

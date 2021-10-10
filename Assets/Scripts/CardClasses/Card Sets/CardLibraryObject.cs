@@ -12,17 +12,17 @@ public class CardLibraryObject<T>: ScriptableObject
         private set
         {
             if(_cardSet == null)
-                _cardSet = new ();
+                _cardSet = new CardLibrary<string, int>();
         }
     }
     
-    [SerializeField] private List<CardObject<Card<T>>> _cards = new();
+    [SerializeField] private List<CardObject> _cards = new List<CardObject>();
 
 
     private void OnValidate()
     {
         if (_cardSet == null)
-            _cardSet = new ();
+            _cardSet = new CardLibrary<string, int>();
         foreach (var card in _cards)
         {
             if (card.TypeVerified && !_cardSet.CardSet.ContainsKey(card.Title) && !_cardSet.CardSet.ContainsValue(card.CardNumber))

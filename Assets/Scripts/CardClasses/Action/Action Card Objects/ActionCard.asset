@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: ActionCard
   m_EditorClassIdentifier: 
   _isTypeVerified: 1
-  _actionCard:
-    _cardSet: {fileID: 11400000, guid: f0025c2ed30598b4e8953bb7e9e36228, type: 2}
-    _title: Action Card
-    _cardType: 4
-    _cardNumber: 3
-    _rarity: 2
+  _thisActionCard:
+    _title: Card Title
+    _cardType: 1
+    _cardNumber: 0
+    _rarity: 0
     _cardText: Card Text
     _cardImageSprite: {fileID: 0}

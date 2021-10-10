@@ -5,7 +5,7 @@
 /// </list>
 /// </summary>
 [System.Serializable]
-public class ActionCard: Card<ActionCard>// INHERITANCE
+public class ActionCard: Card// INHERITANCE
 {
    // ENCAPSULATION
 }
