@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708f565c4862dca4f82ef06675df141f, type: 3}
+  m_Name: Scan Visor
+  m_EditorClassIdentifier: 
+  _isTypeVerified: 0
+  _thisCard:
+    _title: Card Title
+    _cardType: 0
+    _cardNumber: 0
+    _rarity: 0
+    _cardText: Card Text
+    _cardImageSprite: {fileID: 0}
+  _upgradeCard:
+    _title: Card Title
+    _cardType: 0
+    _cardNumber: 0
+    _rarity: 0
+    _cardText: Card Text
+    _cardImageSprite: {fileID: 0}
+    _upgradeType: 0
+    _power: 0

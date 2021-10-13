@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &288897813264308404
+--- !u!114 &2124960223136851300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,25 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22984f9023db540469db7896f7e5c1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCardVerified: 1
+  _cardSO: {fileID: 0}
+  _isCardVerified: 0
   _titleText: {fileID: 6886719766904274954}
   _cardText: {fileID: 6886719765301757491}
   _cardBorder: {fileID: 6886719766118558543}
   _cardImage: {fileID: 6886719766405614181}
   _rarityColors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5471698, g: 0.36842746, b: 0.19357423, a: 1}
-  - {r: 0.4716981, g: 0.46502313, b: 0.46502313, a: 1}
-  - {r: 0.5849056, g: 0.5086312, b: 0.10760058, a: 1}
-  _cardClassColors:
-  - {r: 0.36538804, g: 0.5141986, b: 0.6509434, a: 1}
-  - {r: 0.735849, g: 0.4363525, b: 0.21173012, a: 1}
-  - {r: 0.34901962, g: 0.28627452, b: 0.49411765, a: 1}
-  - {r: 0.745283, g: 0.18632075, b: 0.18632075, a: 1}
-  - {r: 0.48402455, g: 0.6886792, b: 0.600289, a: 1}
-  - {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
-  - {r: 0.38679248, g: 0.26408526, b: 0.14048594, a: 1}
-  _upgradeCardSO: {fileID: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  _cardTypeColors:
+  - {r: 0.21444462, g: 0.5585619, b: 0.745283, a: 1}
+  - {r: 0.8962264, g: 0.57434696, b: 0.012682426, a: 1}
+  - {r: 0.6509434, g: 0.18115878, b: 0.18115878, a: 1}
+  - {r: 0.6603774, g: 0.27100393, b: 0.62421787, a: 1}
+  - {r: 0.36538804, g: 0.6509434, b: 0.5335997, a: 1}
+  - {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
+  - {r: 0.5188679, g: 0.40627053, b: 0.13950694, a: 1}
 --- !u!1001 &6492157951761058386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52,11 +52,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 399215498108045912, guid: 121b4042a98371141b9898c53381011d, type: 3}
       propertyPath: m_text
-      value: Wave Beam
+      value: Upgrade Card
       objectReference: {fileID: 0}
     - target: {fileID: 399215498108045912, guid: 121b4042a98371141b9898c53381011d, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 399215498555195447, guid: 121b4042a98371141b9898c53381011d, type: 3}
       propertyPath: m_Color.a
@@ -164,6 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 84080891283497141, guid: 121b4042a98371141b9898c53381011d, type: 3}
+    - {fileID: 5031312744194847310, guid: 121b4042a98371141b9898c53381011d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 121b4042a98371141b9898c53381011d, type: 3}
 --- !u!1 &739288756702947142 stripped
 GameObject:

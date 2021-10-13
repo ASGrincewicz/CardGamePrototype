@@ -1,44 +1,30 @@
 ﻿using UnityEngine;
-using System;
 /// <summary>
 /// Assign this Scriptable Object to the specified field
-/// in a Prefab with the <c>ActionCardGameObject</c> component.
+/// in a Prefab with the ActionCardGameObject component.
 /// </summary>
 [CreateAssetMenu(menuName = "Card/Action Card")]
 public class ActionCardObject: CardObject// INHERITANCE
-{ 
-    [SerializeField] private ActionCard _actionCard = new ActionCard();
-
-    public ActionCard ThisActionCard// ENCAPSULATION
+{
+    [SerializeField] protected ActionCard _thisActionCard;
+    public ActionCard GetCard() => _thisActionCard;
+    protected override void SetCard(ActionCard card)
     {
-        get => _actionCard;
-        set
+        if (_thisActionCard.ThisCardType != CardType.Action)
         {
-            if (_actionCard.ThisCardType != CardType.Action)
-            {
-                Debug.Log($"{_actionCard.ThisCardType} should not be of type: ActionCard. Please check the Card Type.");
-                _isTypeVerified = false;
-            }
-           
-            else
-            {
-                _actionCard = value;
-                _isTypeVerified = true;
-                _title = _actionCard.Title;
-                _cardNumber = _actionCard.CardNumber;
-            }
+            Debug.Log($"{_thisActionCard.ThisCardType} should not be of type: ActionCard. Please check the Card Type.");
+            _isTypeVerified = false;
+        }
+
+        else
+        {
+            _thisActionCard = card;
+            _isTypeVerified = true;
+            _title = _thisActionCard.Title;
+            _cardNumber = _thisActionCard.CardNumber;
+            _cardText = _thisActionCard.CardText;
+            _rarity = _thisActionCard.Rarity;
+            _cardType = _thisActionCard.ThisCardType;
         }
     }
-    protected override void OnValidate()
-    {
-        try
-        {
-            ThisActionCard = _actionCard;
-        }
-        catch (NullReferenceException ex)
-        {
-            Debug.Log("Please assign an Action Card to this game object.");
-        }
-    }
-
 }

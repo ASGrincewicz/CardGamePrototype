@@ -1,35 +1,23 @@
 ﻿using UnityEngine;
 using System;
+using TMPro;
 /// <summary>
 /// Used to represent Unit Cards during gameplay.
-/// Must have <c>UnitCardObject</c> assigned
+/// Must have UnitCardObject assigned
 /// in order to function.
 /// </summary>
 public class UnitCardGameObject :CardGameObject// INHERITANCE
 {
-    [SerializeField] private UnitCardObject _unitCardSO;
-    [SerializeField] private UnitCard _unitCard => _unitCardSO.ThisUnitCard;
-    public UnitCardObject CardObject// ENCAPSULATION
-    {
-        get=> _unitCardSO;
-        set
-        {
-            if (_unitCardSO.TypeVerified)
-                _unitCardSO = value;
-            else
-            {
-                Debug.Log("Please verify the UnitCardObject's type.");
-            }
-        }
-    }
-    #region Inherited Methods
-    protected override void OnValidate()// POLYMORPHISM
+    [SerializeField] private Color[] _unitTypeColors = new Color[4];
+    [SerializeField] private TMP_Text _hPText = null;
+    [SerializeField] private TMP_Text _powerText = null;
+
+    protected override void OnValidate()
     {
         try
         {
-            if (!_unitCardSO.TypeVerified)
+            if (!_cardSO.TypeVerified)
             {
-                _unitCardSO = null;
                 _isCardVerified = false;
                 throw new NullReferenceException();
             }
@@ -37,43 +25,21 @@ public class UnitCardGameObject :CardGameObject// INHERITANCE
             {
                 _isCardVerified = true;
                 if (this.gameObject.activeInHierarchy)
-                    this.gameObject.name = $"{_unitCard.CardNumber}_{_unitCard.Title}_card";
-                _cardBorder.color = _rarityColors[(int)_unitCard.Rarity];
-                _cardImage.color = _cardClassColors[(int)_unitCard.ThisCardType];
-                _cardText.text = $"{_unitCard.CardText}";
-                _titleText.text = $"{_unitCard.Title}";
+                    this.gameObject.name = $"{_cardSO.CardNumber}_{_cardSO.Title}_card";
+
+                SetColors((int)_cardSO.ThisCardType);
+                SetText();
             }
         }
-        catch(NullReferenceException ex)
+        catch (NullReferenceException ex)
         {
             if (this.gameObject.activeInHierarchy)
                 Debug.LogWarning($"Please check the card assigned to {name} is setup correctly.");
         }
-    }
-
-    protected override void OnEnable()// POLYMORPHISM
+    }// INHERITANCE
+    protected override void SetColors(int unitTypeColor)
     {
-        try
-        {
-            if (_unitCardSO == null)
-            {
-                _isCardVerified = false;
-                throw new NullReferenceException();
-            }
-            else
-                VerifyCardToPlay();// ABSTRACTION
-
-        }
-       
-        catch (NullReferenceException ex)
-        {
-            Debug.Log($"You have not assigned a Unit Card Object to {gameObject.name}!");
-        }
+        _cardBorder.color = _rarityColors[(int)_cardSO.Rarity];
+        _cardImage.color = _unitTypeColors[unitTypeColor];
     }
-   
-    protected override void PlayCard()// POLYMORPHISM
-    {
-        Debug.Log($"{this.gameObject.name} was played.");
-    }
-    #endregion
 }
